@@ -1,5 +1,7 @@
 # Inventory Monitoring System 
 
+### 🚧 Project Status: **In Development**
+
 ### **Overview**
 This project provides an **automated inventory monitoring system** using AWS services.  
 It tracks stock levels in **real-time** and generates **weekly summary reports**.
@@ -13,10 +15,6 @@ It tracks stock levels in **real-time** and generates **weekly summary reports**
 ✅ **Automated report generation via EventBridge**  
 
 ---
-
-## **📁 Project Structure**
-
-
 
 ---
 
