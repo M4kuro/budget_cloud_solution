@@ -16,7 +16,6 @@ It tracks stock levels in **real-time** and generates **weekly summary reports**
 
 ---
 
----
 
 ## **⚙️ AWS Services Used**
 - **DynamoDB** → Inventory storage
@@ -36,12 +35,32 @@ It tracks stock levels in **real-time** and generates **weekly summary reports**
 1. **EventBridge triggers Lambda** every Thursday at 5 PM UTC.
 2. The report is saved in **S3** and an **SNS notification** is sent.
 
+
+
+
+### **🔹 Infrastructure Diagram:**
+![image](https://github.com/user-attachments/assets/f6ba078c-8085-4411-8a00-72a02fbfc197)
+
+
+
+
+### **🔹 Sequence Diagram:**
+
+![image](https://github.com/user-attachments/assets/0faf4d8c-bc71-4792-98e5-cc7c7e297064)
+
+   
+
 ---
 
-## **📜 API & Data Design**
-- **DynamoDB Table Structure**
-- **Example stock update JSON request**
-- **Querying inventory using boto3**
+## **📜 Data Design**
+| Attribute         | Type   | Description |
+|-------------------|--------|-------------|
+| `product_id`      | String | Unique identifier for the product. |
+| `product_name`    | String | Name of the product. |
+| `product_category`| String | Category of the product (e.g., electronics, clothing). |
+| `stock_count`     | Number | Current stock level of the product. |
+| `last_alert_time` | String | Timestamp of the last alert sent. |
+
 
 ---
 
