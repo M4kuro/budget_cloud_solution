@@ -3,7 +3,7 @@
 ### 🚧 Project Status: **In Development**
 
 ### **Overview**
-This project provides an **automated inventory monitoring system** using AWS services.  
+This project provides an **automated inventory monitoring system** using only free tier AWS services.  
 It tracks stock levels in **real-time** and generates **weekly summary reports**.
 
 ---
