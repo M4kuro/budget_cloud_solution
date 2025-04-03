@@ -67,9 +67,10 @@ def lambda_handler(event, context):
     print(f"Summary saved to S3: {filename}")
 
     sns_message = f"Weekly report has been generated!\n\nLink: s3://{S3_BUCKET}/{filename}"
-
+    
+    # using environment variables better for security and flexibility
     sns.publish(
-        TopicArn=ALERT_TOPIC_ARN,
+        TopicArn=ALERT_TOPIC_ARN, 
         Subject="Inventory Weekly Report",
         Message=sns_message
     )

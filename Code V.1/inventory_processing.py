@@ -29,7 +29,7 @@ def lambda_handler(event, context):
             product_category = new_image.get('product_category', {'S': 'Uncategorized'})['S']
             stock_level = int(new_image['stock_count']['N'])
 
-            # Get old image (if exists)
+            # Get old image 
             old_image = record['dynamodb'].get('OldImage')
 
             old_stock_level = None
