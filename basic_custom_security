@@ -1,0 +1,47 @@
+Even though there are existing ones, custom-made will always give the maximum security as you can plan for
+
+<<<-----  DynamoDb ----->>>
+Policy name: InventoryReadOnlyAccess
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:Scan",
+                "dynamodb:GetItem",
+                "dynamodb:DescribeTable"
+            ],
+            "Resource": "arn:aws:dynamodb:us-west-2:<your-account-id>:table/<your-table-name>"
+        }
+    ]
+}
+
+<<<----- S3_BUCKET ----->>>
+Policy name: S3WriteOnlyReports
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::<your-bucket-name>/*"
+        }
+    ]
+}
+
+
+<<<----- SNS ----->>>
+Policy name: SNSPublishOnly
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sns:Publish",
+            "Resource": "arn:aws:sns:us-west-2:<your-account-id>:inventory_alert"
+        }
+    ]
+}
