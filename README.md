@@ -2,7 +2,8 @@
 
 ## 🚧 Project Status: **In Development**
 ### Current state:
-#### **A simple demo is ready and set for alerting users on changes made on the table, as well as the summary weekly report**
+#### **V.1 - Done -> Recommended for micromanagement and small business.**
+#### **V.2 - UI Added and under enhancement; Uploading datasets feature added (Lambda read dataset from S3 Buckets)**
 ---
 
 ### **Overview**
