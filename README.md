@@ -2,8 +2,13 @@
 
 ## 🚧 Project Status: **In Development**
 ### Current state:
-#### **V.1 - Done -> Recommended for micromanagement and small business.**
-#### **V.2 - UI Added and under enhancement; Uploading datasets feature added (Lambda read dataset from S3 Buckets)**
+**V.1 - Fully functional monitoring system using real-time triggers and weekly reports.**
+
+**V.2 - Partially implemented:**
+   + UI Dashboard added (mock data enabled for demo).
+   + Upload inventory via CSV to S3 – triggers Lambda to generate reports.
+   + XLSX upload considered but postponed due to complexity.
+   + Final implementation will focus on making the system plug-and-play for small teams.
 ---
 
 ### **Overview**
@@ -17,15 +22,18 @@ It tracks stock levels in **real-time** and generates **weekly summary reports**
 ✅ **Low stock alerts** (SNS Notifications)  
 ✅ **Weekly reports saved to S3**  
 ✅ **Automated report generation via EventBridge**  
+✅ **CSV Upload support to generate inventory reports**  
+✅ **Frontend dashboard mock UI built with React**  
+
 
 ---
 
 
 ## **⚙️ AWS Services Used**
 - **DynamoDB** → Inventory storage
-- **Lambda** → Processes stock updates & generates reports
+- **Lambda** → Processes stock updates, generates reports, and parses CSV files
 - **SNS** → Sends alerts & notifications
-- **S3** → Stores weekly reports
+- **S3** → Stores weekly reports & receives uploaded CSV files
 - **EventBridge** → Schedules weekly report generation
 
 ---
@@ -33,12 +41,20 @@ It tracks stock levels in **real-time** and generates **weekly summary reports**
 ## **🚀 How It Works**
 ### **🔹 Real-Time Inventory Updates**
 1. **DynamoDB Streams trigger Lambda** when stock updates.
-2. Lambda **checks for important changes**, such as a product name or price change and **sends SNS alerts if needed.**
-3. 
+2. Lambda **checks for important changes**, such as a product name or price and **sends SNS alerts if needed.**
 
 ### **🔹 Weekly Summary Reports**
 1. **EventBridge triggers Lambda** every Thursday at 5 PM UTC.
 2. The report is saved in **S3** and an **SNS notification** is sent.
+
+### 🔹 CSV Upload Flow
+1. User uploads a `.csv` file to the designated **input S3 bucket**.
+2. A Lambda function is triggered, which:
+   - Parses the file
+   - Extracts inventory data
+   - Saves a JSON summary to another S3 bucket
+   - Sends an optional SNS alert with a summary link
+
 
 
 
