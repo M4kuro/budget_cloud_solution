@@ -12,7 +12,7 @@
 ---
 
 ### **Overview**
-This project provides an **automated inventory monitoring system** using only free tier AWS services.  
+This project provides an **automated inventory monitoring system** using only free-tier AWS services.  
 It tracks stock levels in **real-time** and generates **weekly summary reports**.
 
 ---
@@ -59,14 +59,16 @@ It tracks stock levels in **real-time** and generates **weekly summary reports**
 
 
 ### **🔹 Infrastructure Diagram:**
-![image](https://github.com/user-attachments/assets/f6ba078c-8085-4411-8a00-72a02fbfc197)
+![v1-First](https://github.com/user-attachments/assets/46d15d9c-4de6-4c2e-931d-45939db4c008)
 
+![v2-first](https://github.com/user-attachments/assets/d94afd83-86eb-4d16-b917-db0e9addb721)
 
 
 
 ### **🔹 Sequence Diagram:**
-
-![image](https://github.com/user-attachments/assets/0faf4d8c-bc71-4792-98e5-cc7c7e297064)
+![v1-seq-diagram](https://github.com/user-attachments/assets/d9ded8aa-50e6-47e3-9205-99c8ddd5d864)
+ 
+![V2-seq-Diagram](https://github.com/user-attachments/assets/45d4afb3-33a0-4704-80d3-949bbf0939ca)
 
 ---
 ## Data Design
@@ -132,6 +134,36 @@ For detailed information on each attribute, please refer to the [Data Dictionary
 
 ---
 
+## **📈 Monitoring & Metrics**
+
+The system uses Amazon CloudWatch to monitor application health and performance:
+
+Lambda Monitoring: CloudWatch tracks Lambda execution metrics such as success/error count and duration.
+
+SQS Metrics:
+
+NumberOfMessagesSent
+
+NumberOfMessagesReceived
+
+ApproximateAgeOfOldestMessage
+
+CloudWatch Alarms: An alarm is configured for the SQS queue to alert if messages are delayed or stuck for too long.
+
+---
+
+## **🔒 Security Considerations**
+This project follows basic AWS security best practices:
+
+IAM Roles and Least Privilege: Lambda functions use a dedicated IAM role with only the permissions required to read from S3, write to DynamoDB, and send messages to SNS.
+
+Read-Only IAM Access: A separate IAM user was created for grading purposes with read-only permissions across used services (S3, DynamoDB, Lambda, CloudWatch).
+
+S3 Bucket Protection: The S3 bucket uses server-side encryption (SSE-S3) to protect uploaded CSV files. Public access is disabled.
+
+No Hardcoded Secrets: All credentials and secrets are managed through IAM roles and environment variables (no secrets in code).
+
+---
 ## **📝 Contributing**
 If you’d like to contribute, feel free to open a Pull Request!  
 
