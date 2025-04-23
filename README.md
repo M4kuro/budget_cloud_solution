@@ -47,9 +47,9 @@ It tracks stock levels in **real-time** and generates **weekly summary reports**
 
 
 ### **🔹 Infrastructure Diagram:**
-![image](https://github.com/user-attachments/assets/f6ba078c-8085-4411-8a00-72a02fbfc197)
+![v1-First](https://github.com/user-attachments/assets/84d71e71-82f0-4432-a7e8-17d54da1ca7a)
 
-
+![v2-first](https://github.com/user-attachments/assets/647412fc-50ff-47ef-9258-9c14ea05cd23)
 
 
 ### **🔹 Sequence Diagram:**
