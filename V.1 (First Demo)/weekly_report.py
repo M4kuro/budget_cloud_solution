@@ -11,6 +11,7 @@ s3 = boto3.client('s3')
 INVENTORY_TABLE = os.environ['TABLE_NAME']
 THRESHOLD = int(os.environ['THRESHOLD'])
 S3_BUCKET = os.environ['S3_BUCKET']
+ALERT_TOPIC_ARN = os.environ['ALERT_TOPIC_ARN']
 
 table = dynamodb.Table(INVENTORY_TABLE)
 
